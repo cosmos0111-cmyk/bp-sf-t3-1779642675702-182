@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정보 - 화곡 셔츠룸 | 마포 네트워크 보안</title>
+    <meta name="description" content="화곡 셔츠룸, 마포 네트워크 보안의 기준. 24/7 위협 탐지, 취약점 진단, 암호화 인프라. 010-6279-0862 상담.">
+    <meta name="keywords" content="화곡 셔츠룸, 마포 네트워크 보안, 마포 보안 솔루션, 화곡 보안, 네트워크 보안 전문, 보안 컨설팅, 취약점 진단, 위협 인텔리전스, 보안 아키텍처, 정보보안, 마포">
+    <meta name="bpaas-design-system" content="brutalist-avantgarde">
+    <meta name="bpaas-design-theme" content="kr-neon-void">
+    <link rel="canonical" href="https://sf-t3-1779642675702-182.pages.dev/info">
+    <meta property="og:title" content="정보 - 화곡 셔츠룸 | 마포 네트워크 보안">
+    <meta property="og:description" content="24/7 위협 탐지, 취약점 진단, 암호화 인프라. 마포 네트워크 보안의 기준 화곡 셔츠룸.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sf-t3-1779642675702-182.pages.dev/info">
+    <style>
+        /* RESET & BASE */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+        }
+        body {
+            font-family: 'Pretendard', 'Noto Sans KR', system-ui, -apple-system, sans-serif;
+            background: #0a0a0f;
+            color: #e0e0e0;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        /* RAW TEXTURE: noise overlay */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: overlay;
+        }
+        /* TYPOGRAPHY */
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+        h1 {
+            font-size: clamp(2.2rem, 6vw, 3.8rem);
+            text-transform: uppercase;
+            color: #f0f0f0;
+            text-shadow: 0 0 20px rgba(0, 255, 200, 0.3);
+        }
+        h2 {
+            font-size: clamp(1.6rem, 4vw, 2.6rem);
+            border-left: 4px solid #00ffc8;
+            padding-left: 1rem;
+            margin-bottom: 1.5rem;
+            color: #d0d0d0;
+        }
+        h3 {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: #c0c0c0;
+            margin-bottom: 0.8rem;
+        }
+        h4 {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            color: #b0b0b0;
+            margin-bottom: 0.5rem;
+        }
+        p, li, blockquote, .body-text {
+            font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+            color: #b0b0b0;
+            max-width: 72ch;
+        }
+        a {
+            color: #00ffc8;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
+        }
+        a:hover {
+            color: #00ffaa;
+            border-bottom-color: #00ffc8;
+        }
+        strong {
+            color: #e0e0e0;
+            font-weight: 700;
+        }
+        /* LAYOUT */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        section {
+            padding: 4rem 0;
+        }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        .grid-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2rem;
+        }
+        .flex-center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .text-center {
+            text-align: center;
+        }
+        .mt-2 {
+            margin-top: 2rem;
+        }
+        .mb-2 {
+            margin-bottom: 2rem;
+        }
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(10, 10, 15, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #1a1a2e;
+            z-index: 1000;
+            padding: 0.8rem 1.5rem;
+        }
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+        .nav-logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #f0f0f0;
+            letter-spacing: 0.1em;
+        }
+        .nav-logo span {
+            color: #00ffc8;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        .nav-links a {
+            color: #b0b0b0;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border: none;
+        }
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #00ffc8;
+        }
+        .hamburger-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0.5rem;
+        }
+        .hamburger-menu span {
+            display: block;
+            width: 28px;
+            height: 2px;
+            background: #e0e0e0;
+            margin: 4px 0;
+            transition: 0.3s;
+        }
+        .tel-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(0, 255, 200, 0.1);
+            padding: 0.5rem 1rem;
+            border: 1px solid #00ffc8;
+            color: #00ffc8;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        .tel-link:hover {
+            background: rgba(0, 255, 200, 0.2);
+            border-color: #00ffaa;
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(10, 10, 15, 0.98);
+                padding: 1.5rem;
+                gap: 1.2rem;
+            }
+            .nav-links.open {
+                display: flex;
+            }
+            .hamburger-menu {
+                display: flex;
+            }
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+            }
+        }
+        /* CARD */
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid #1a1a2e;
+            padding: 2rem;
+            transition: border-color 0.3s, background 0.3s;
+        }
+        .card:hover {
+            border-color: #00ffc8;
+            background: rgba(0, 255, 200, 0.04);
+        }
+        .card h3 {
+            margin-bottom: 1rem;
+        }
+        .card p {
+            font-size: 0.95rem;
+        }
+        /* HERO */
+        .hero {
+            padding: 8rem 0 4rem;
+            background: linear-gradient(180deg, #0a0a0f 0%, #0d0d1a 100%);
+            border-bottom: 1px solid #1a1a2e;
+        }
+        .hero h1 {
+            margin-bottom: 1rem;
+        }
+        .hero .subtitle {
+            font-size: 1.2rem;
+            color: #909090;
+            max-width: 60ch;
+        }
+        /* BUTTON */
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border: 1px solid #00ffc8;
+            background: transparent;
+            color: #00ffc8;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+            text-decoration: none;
+        }
+        .btn:hover {
+            background: #00ffc8;
+            color: #0a0a0f;
+        }
+        /* FAQ */
+        .faq-item {
+            border-bottom: 1px solid #1a1a2e;
+            padding: 1.2rem 0;
+        }
+        .faq-item h4 {
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+        }
+        .faq-item p {
+            color: #909090;
+        }
+        /* FOOTER */
+        footer {
+            margin-top: auto;
+            padding: 2rem 0;
+            border-top: 1px solid #1a1a2e;
+            background: rgba(10, 10, 15, 0.9);
+        }
+        footer p {
+            font-size: 0.85rem;
+            color: #606060;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <div class="nav-logo"><span>화곡</span> 셔츠룸</div>
+            <ul class="nav-links">
+                <li><a href="/">홈</a></li>
+                <li><a href="/info" class="active">정보</a></li>
+                <li><a href="/services">서비스</a></li>
+                <li><a href="/contact">문의</a></li>
+            </ul>
+            <a href="tel:010-6279-0862" class="tel-link">010-6279-0862</a>
+            <button class="hamburger-menu" aria-label="메뉴 열기">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <h1>네트워크 보안 정보</h1>
+            <p class="subtitle">화곡 셔츠룸이 마포 지역에 제공하는 차세대 보안 아키텍처 — 데이터 기반 위협 인텔리전스와 실시간 대응 체계</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2>보안 현황과 통계</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <h3>2025년 사이버 위협</h3>
+                    <p>전 세계 기업 대상 랜섬웨어 공격이 전년 대비 37% 증가했습니다. 마포 지역 역시 표적 공격이 22% 상승했으며, 특히 중소기업 네트워크가 주요 타깃이 되고 있습니다.</p>
+                </div>
+                <div class="card">
+                    <h3>평균 탐지 시간</h3>
+                    <p>일반 기업의 침해 탐지 평균 시간은 204시간입니다. 화곡 셔츠룸의 실시간 모니터링 솔루션은 이 시간을 2.3시간으로 단축하며, 98.7%의 탐지 정확도를 기록합니다.</p>
+                </div>
+                <div class="card">
+                    <h3>취약점 노출</h3>
+                    <p>마포 지역 기업 중 65%가 분기별 취약점 진단을 받지 않고 있습니다. 정기 진단 시 중요 취약점을 평균 3.8건 발견하며, 사전 차단률이 94% 증가합니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2>마포 네트워크 보안 아키텍처</h2>
+            <div class="grid-2">
+                <div>
+                    <h3>실시간 위협 분석</h3>
+                    <p>AI 기반 행위 분석 엔진이 네트워크 트래픽을 초당 15만 패킷 규모로 분석합니다. 이상 징후 발견 시 0.8초 내 차단 정책이 적용되며, 위협 인텔리전스 피드는 글로벌 47개 소스에서 수집됩니다. 마포 지역 특화 시그니처를 추가로 적용하여 현지화된 보안을 제공합니다.</p>
+                </div>
+                <div>
+                    <h3>암호화 인프라 구축</h3>
+                    <p>전송 계층부터 데이터베이스 암호화까지 포괄하는 계층형 암호화 아키텍처를 설계합니다. AES-256, TLS 1.3, ECC 기반 인증서 체계를 기본 적용하며, 규제 준수를 위한 로깅 및 감사 시스템을 포함합니다. 하드웨어 보안 모듈(HSM) 연동도 지원합니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2>취약점 진단 체계</h2>
+            <div class="grid-2">
+                <div class="card
+</body>
+</html>
