@@ -287,57 +287,48 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- 네비게이션 -->
-        <nav>
-            <div class="nav-logo">
-                <a href="/">화곡 셔츠룸</a>
-            </div>
-            <button class="hamburger-menu" aria-label="메뉴 열기" onclick="toggleMenu()">
-                <span></span><span></span><span></span>
-            </button>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="/">홈</a></li>
-                <li><a href="/about">소개</a></li>
-                <li><a href="/services">서비스</a></li>
-                <li><a href="/blog">블로그</a></li>
-                <li><a href="/contact">문의</a></li>
-            </ul>
-        </nav>
 
-        <!-- 메인 콘텐츠 -->
-        <main>
-            <h1>보안 인사이트</h1>
-            <p class="body-text">데이터 기반 위협 분석과 검증된 설계 원칙. 화곡 셔츠룸이 마포 네트워크 보안 현장에서 축적한 인사이트를 공유합니다.</p>
+<main>
+<article class="container">
+<header>
+<p class="card-meta">이용 가이드 · 정보 보안 편</p>
+<h1>화곡 셔츠룸을 예약하기 전 정보 보안부터 짚어본다</h1>
+</header>
+<div class="card-body body-text">
+<p>화곡 지역 셔츠룸을 예약할 때 이용자가 가장 먼저 마주치는 절차는 전화나 온라인 채널을 통한 개인정보 입력이다. 이름, 연락처, 방문 인원처럼 예약 처리에 필요한 정보와, 굳이 요구되지 않아도 되는 항목을 구분해서 보는 것이 이 글의 목적이다.</p>
+<p>가격이나 룸 구성 같은 정보는 업장마다 편차가 크고 시점에 따라 달라지므로, 이 글에서는 특정 금액이나 등급을 나열하는 대신 무엇이 그 값을 좌우하는지를 정리한다.</p>
+<p>연락처 하나를 남기더라도 그 정보가 어디까지 전달되고 언제 폐기되는지 확인하는 습관은 특정 업종에 국한되지 않는 일반적인 이용자 수칙이다. 아래 항목은 예약 과정에서 반복적으로 등장하는 확인 지점을 정리한 것이다.</p>
+</div>
 
-            <!-- 블로그 게시물 1편 -->
-            <article class="card">
-                <h2 class="card-title">차세대 엔드포인트 탐지: EDR에서 XDR로의 전환</h2>
-                <div class="card-meta">2025년 3월 28일 | 마포 보안 연구소 | 8분 읽기</div>
-                <div class="card-body">
-                    <p><strong>핵심 요약:</strong> 전통적인 엔드포인트 탐지 및 대응(EDR)은 단일 계층에 국한되는 반면, 확장 탐지 및 대응(XDR)은 네트워크, 클라우드, 이메일을 통합합니다. 2024년 <span class="data-stat">+47%</span> 증가한 피싱 기반 침해 사례를 고려할 때, XDR 도입은 선택이 아닌 필수입니다.</p>
-                    
-                    <h3>1. EDR의 한계: 데이터 사일로</h3>
-                    <p>기존 EDR 솔루션은 호스트 수준의 로그에 의존합니다. MITRE ATT&amp;CK 프레임워크 기준으로 <span class="data-stat">62%</span>의 공격 기법이 다중 계층을 활용하지만, EDR은 단일 계층만 감시합니다. 2023년 국내 금융권 랜섬웨어 사고 분석 결과, EDR이 탐지한 초기 침입은 <span class="data-stat">34%</span>에 불과했으며 나머지는 네트워크 또는 클라우드 계층에서 포착되었습니다.</p>
-                    
-                    <h3>2. XDR의 통합 아키텍처</h3>
-                    <p>XDR은 엔드포인트, 네트워크, 이메일, 클라우드 워크로드의 텔레메트리를 중앙 상관 분석 엔진으로 수집합니다. 당사가 마포 지역 12개 기업에 구축한 XDR 파일럿 결과, 평균 <span class="data-stat">2.8일</span>이던 평균 탐지 시간(MTTD)이 <span class="data-stat">4.2시간</span>으로 단축되었습니다. 오탐률도 <span class="data-stat">23%</span> 감소했습니다.</p>
-                    
-                    <blockquote>
-                        "XDR은 단순한 제품이 아니라 보안 운영의 패러다임 전환입니다. 데이터가 흩어져 있는 한 위협은 항상 사각지대에 숨습니다." — 화곡 셔츠룸 보안 아키텍트
-                    </blockquote>
-                    
-                    <h3>3. 마포 네트워크 환경 고려사항</h3>
-                    <p>마포 지역은 중견기업과 스타트업이 혼재되어 있으며, 클라우드 하이브리드 환경이 <span class="data-stat">71%</span>를 차지합니다. XDR 도입 시 다음 요소를 우선 평가해야 합니다:</p>
-                    <ul>
-                        <li><strong>API 기반 통합:</strong> 기존 SIEM, 티켓팅 시스템과의 연동 용이성</li>
-                        <li><strong>위협 인텔리전스 피드:</strong> 국내 ISAC 및 글로벌 피드와의 호환성</li>
-                        <li><strong>규제 준수:</strong> 개인정보보호법, ISMS-P 인증 요구사항 대응</li>
-                    </ul>
-                    
-                    <h3>4. 전환 로드맵</h3>
-                    <p>단계적 접근이 안정적입니다. 첫 4주 동안 기존 EDR과 XDR을 병행 운영하여 베이스라인을 수집하고, 이후 8주에 걸쳐 정책을 마이그레이션합니다. 당사 고객사 <span class="data-stat">94%</span>가 이 방식을 채택하여 가동 중단 없이 전환을 완료했습니다.</p>
-                    
-                    <p><strong>결론:</strong> EDR에서 XDR로의 전환은 투자 대비 보안 효율성(ROSI)을 <span class="
+<section>
+<h2>확인이 필요한 세 가지 지점</h2>
+<div class="card"><p class="card-title">예약 채널</p><p class="card-body">전화, 메신저, 예약 사이트 중 어떤 경로로 예약을 받는지, 해당 채널이 공식 채널이 맞는지 확인한다.</p></div>
+<div class="card"><p class="card-title">입력 항목</p><p class="card-body">이름과 연락처 외에 추가로 요구하는 정보가 있다면 왜 필요한지 물어볼 수 있다.</p></div>
+<div class="card"><p class="card-title">결제 방식</p><p class="card-body">현장 결제인지 선결제인지에 따라 취소·환불 절차가 달라지므로 미리 확인한다.</p></div>
+</section>
+
+<section>
+<h2>예약 전 체크리스트</h2>
+<div class="card"><p class="card-title">공식 채널 확인</p><p class="card-body">검색 결과나 지도 서비스에 등록된 대표 번호와 일치하는지 대조한다.</p></div>
+<div class="card"><p class="card-title">필수 입력 항목</p><p class="card-body">이름, 연락처, 인원 외의 정보를 요구하면 사용 목적을 먼저 물어본다.</p></div>
+<div class="card"><p class="card-title">취소·환불 기준</p><p class="card-body">선결제가 있는 경우 취소 가능 시점과 환불 절차를 예약 시점에 문서나 메시지로 남겨둔다.</p></div>
+</section>
+
+<section>
+<h2>용어 정리</h2>
+<div class="card"><p class="card-title">최소 수집 원칙</p><p class="card-body">서비스 제공에 꼭 필요한 정보만 수집해야 한다는 개인정보 처리의 기본 원칙.</p></div>
+<div class="card"><p class="card-title">공용 네트워크</p><p class="card-body">업장 내 손님이 함께 쓰는 무선망으로, 결제나 로그인 시 별도 보안 설정 여부를 확인하는 것이 좋다.</p></div>
+</section>
+
+<section>
+<h2>자주 묻는 질문</h2>
+<div class="faq-item"><p class="faq-question">Q. 예약 취소 시 개인정보는 바로 삭제되는가.</p><p class="faq-answer">업장의 보관·파기 방침에 따라 다르므로 예약 시 문의해 확인할 수 있다.</p></div>
+<div class="faq-item"><p class="faq-question">Q. 온라인 예약과 전화 예약 중 무엇이 더 안전한가.</p><p class="faq-answer">채널 자체보다 공식 채널인지 여부가 더 중요하다. 공개된 대표 연락처인지 확인하는 절차가 우선이다.</p></div>
+<div class="faq-item"><p class="faq-question">Q. 방문 후 후기를 남기면 개인정보가 추가로 노출되는가.</p><p class="faq-answer">후기 작성은 별도 동의 절차를 거치는 것이 일반적이며, 작성 여부와 무관하게 예약 정보 자체가 공개되지는 않는다.</p></div>
+</section>
+</article>
+</main>
+
+
 </body>
 </html>
