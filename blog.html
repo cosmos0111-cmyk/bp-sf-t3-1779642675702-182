@@ -1,290 +1,288 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>화곡 셔츠룸 블로그 - 마포 네트워크 보안 인사이트</title>
-    <meta name="description" content="마포 네트워크 보안 전문 화곡 셔츠룸의 블로그. 최신 위협 인텔리전스, 취약점 분석, 보안 아키텍처 설계 사례를 제공합니다.">
-    <meta name="keywords" content="화곡 셔츠룸 블로그, 마포 네트워크 보안, 보안 인사이트, 위협 인텔리전스, 취약점 진단, 보안 아키텍처, 네트워크 보안 전문">
-    <meta name="bpaas-design-system" content="brutalist-avantgarde">
-    <meta name="bpaas-design-theme" content="kr-neon-void">
-    <link rel="canonical" href="https://sf-t3-1779642675702-182.maphoshirts.xyz/blog.html">
-    <meta property="og:title" content="화곡 셔츠룸 블로그 - 마포 네트워크 보안 인사이트">
-    <meta property="og:description" content="마포 네트워크 보안 전문 화곡 셔츠룸의 블로그. 최신 위협 인텔리전스, 취약점 분석, 보안 아키텍처 설계 사례를 제공합니다.">
-    <meta property="og:url" content="https://sf-t3-1779642675702-182.maphoshirts.xyz/blog.html">
-    <style>
-        /* RESET & BASE */
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        html {
-            font-size: 16px;
-            scroll-behavior: smooth;
-        }
-        body {
-            font-family: 'Courier New', Courier, monospace;
-            background: #0a0a0a;
-            color: #e0e0e0;
-            line-height: 1.6;
-            min-height: 100vh;
-            padding: 2rem 1.5rem;
-            position: relative;
-        }
-        /* RAW TEXTURE: noise overlay */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
-            pointer-events: none;
-            z-index: 0;
-        }
-        /* TYPOGRAPHY */
-        h1, h2, h3, h4 {
-            font-weight: 700;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            color: #ff0066;
-            text-shadow: 0 0 8px rgba(255, 0, 102, 0.4);
-            margin-bottom: 1rem;
-        }
-        h1 {
-            font-size: 2.8rem;
-            line-height: 1.1;
-            border-left: 6px solid #ff0066;
-            padding-left: 1.2rem;
-        }
-        h2 {
-            font-size: 2rem;
-            border-bottom: 2px solid #333;
-            padding-bottom: 0.5rem;
-            margin-top: 2.5rem;
-        }
-        h3 {
-            font-size: 1.4rem;
-            color: #00ffcc;
-            text-shadow: 0 0 6px rgba(0, 255, 204, 0.3);
-        }
-        h4 {
-            font-size: 1.1rem;
-            color: #ffcc00;
-            text-shadow: 0 0 4px rgba(255, 204, 0, 0.2);
-        }
-        p, li, blockquote, .body-text {
-            font-size: 1rem;
-            color: #c0c0c0;
-            margin-bottom: 1.2rem;
-        }
-        a {
-            color: #00ffcc;
-            text-decoration: none;
-            border-bottom: 1px solid transparent;
-            transition: border-color 0.2s;
-        }
-        a:hover {
-            border-bottom-color: #ff0066;
-            color: #ffcc00;
-        }
-        strong {
-            color: #ffcc00;
-            font-weight: 700;
-        }
-        /* LAYOUT GRID */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-        /* HEADER / NAV */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 0;
-            border-bottom: 1px solid #333;
-            margin-bottom: 3rem;
-            flex-wrap: wrap;
-        }
-        .nav-logo a {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: #ff0066;
-            text-shadow: 0 0 12px rgba(255, 0, 102, 0.5);
-            border-bottom: none;
-            letter-spacing: 0.1em;
-        }
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-        .nav-links a {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            padding: 0.3rem 0.6rem;
-            border: 1px solid transparent;
-            transition: all 0.2s;
-        }
-        .nav-links a:hover {
-            border-color: #ff0066;
-            background: rgba(255, 0, 102, 0.1);
-        }
-        .hamburger-menu {
-            display: none;
-            cursor: pointer;
-            background: none;
-            border: none;
-            padding: 0.5rem;
-        }
-        .hamburger-menu span {
-            display: block;
-            width: 28px;
-            height: 2px;
-            background: #e0e0e0;
-            margin: 6px 0;
-            transition: 0.3s;
-        }
-        /* TEL LINK */
-        .tel-link {
-            display: inline-block;
-            background: #ff0066;
-            color: #0a0a0a;
-            padding: 0.6rem 1.8rem;
-            font-weight: 800;
-            font-size: 1.1rem;
-            border: none;
-            cursor: pointer;
-            transition: all 0.2s;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-        .tel-link:hover {
-            background: #cc0052;
-            box-shadow: 0 0 20px rgba(255, 0, 102, 0.6);
-            color: #fff;
-        }
-        /* CARD & BLOG STYLES */
-        .card {
-            background: #111;
-            border: 1px solid #2a2a2a;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            transition: border-color 0.3s;
-        }
-        .card:hover {
-            border-color: #ff0066;
-        }
-        .card-title {
-            font-size: 1.6rem;
-            color: #ff0066;
-            margin-bottom: 0.8rem;
-        }
-        .card-meta {
-            font-size: 0.8rem;
-            color: #777;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 1.2rem;
-            border-bottom: 1px solid #222;
-            padding-bottom: 0.5rem;
-        }
-        .card-body {
-            color: #b0b0b0;
-        }
-        .card-body ul, .card-body ol {
-            padding-left: 1.5rem;
-            margin-bottom: 1.2rem;
-        }
-        .card-body li {
-            margin-bottom: 0.5rem;
-        }
-        blockquote {
-            border-left: 3px solid #ff0066;
-            padding: 1rem 1.5rem;
-            margin: 1.5rem 0;
-            background: rgba(255, 0, 102, 0.05);
-            font-style: italic;
-            color: #d0d0d0;
-        }
-        .data-stat {
-            display: inline-block;
-            background: #1a1a1a;
-            padding: 0.2rem 0.8rem;
-            font-weight: 800;
-            color: #00ffcc;
-            border: 1px solid #00ffcc;
-            margin-right: 0.3rem;
-        }
-        /* FAQ SECTION */
-        .faq-item {
-            margin-bottom: 1.5rem;
-            border-bottom: 1px solid #222;
-            padding-bottom: 1.5rem;
-        }
-        .faq-question {
-            font-weight: 700;
-            color: #ffcc00;
-            cursor: default;
-            margin-bottom: 0.6rem;
-            font-size: 1.1rem;
-        }
-        .faq-answer {
-            color: #b0b0b0;
-        }
-        /* FOOTER */
-        footer {
-            margin-top: 4rem;
-            padding: 2rem 0;
-            border-top: 1px solid #333;
-            text-align: center;
-            color: #666;
-            font-size: 0.85rem;
-        }
-        footer a {
-            color: #777;
-            border-bottom: none;
-        }
-        footer a:hover {
-            color: #ff0066;
-        }
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            body {
-                padding: 1rem;
-            }
-            h1 {
-                font-size: 2rem;
-            }
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                background: #0d0d0d;
-                padding: 1rem 0;
-                border-top: 1px solid #333;
-                margin-top: 1rem;
-            }
-            .nav-links.active {
-                display: flex;
-            }
-            .hamburger-menu {
-                display: block;
-            }
-            .nav-logo a {
-                font-size: 1.4rem;
-            }
-            .card {
-                padding: 1.2rem;
-            }
-        }
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>화곡 셔츠룸 블로그 - 마포 네트워크 보안 인사이트</title>
+ <meta name="description" content="마포 네트워크 보안 전문 화곡 셔츠룸의 블로그. 최신 위협 인텔리전스, 취약점 분석, 보안 아키텍처 설계 사례를 제공합니다.">
+ <meta name="keywords" content="화곡 셔츠룸 블로그, 마포 네트워크 보안, 보안 인사이트, 위협 인텔리전스, 취약점 진단, 보안 아키텍처, 네트워크 보안 전문">
+ <link rel="canonical" href="https://sf-t3-1779642675702-182.maphoshirts.xyz/blog.html">
+ <meta property="og:title" content="화곡 셔츠룸 블로그 - 마포 네트워크 보안 인사이트">
+ <meta property="og:description" content="마포 네트워크 보안 전문 화곡 셔츠룸의 블로그. 최신 위협 인텔리전스, 취약점 분석, 보안 아키텍처 설계 사례를 제공합니다.">
+ <meta property="og:url" content="https://sf-t3-1779642675702-182.maphoshirts.xyz/blog.html">
+ <style>
+ /* RESET & BASE */
+ *, *::before, *::after {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ }
+ html {
+ font-size: 16px;
+ scroll-behavior: smooth;
+ }
+ body {
+ font-family: 'Courier New', Courier, monospace;
+ background: #0a0a0a;
+ color: #e0e0e0;
+ line-height: 1.6;
+ min-height: 100vh;
+ padding: 2rem 1.5rem;
+ position: relative;
+ }
+ /* RAW TEXTURE: noise overlay */
+ body::before {
+ content: '';
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+ pointer-events: none;
+ z-index: 0;
+ }
+ /* TYPOGRAPHY */
+ h1, h2, h3, h4 {
+ font-weight: 700;
+ letter-spacing: 0.05em;
+ text-transform: uppercase;
+ color: #ff0066;
+ text-shadow: 0 0 8px rgba(255, 0, 102, 0.4);
+ margin-bottom: 1rem;
+ }
+ h1 {
+ font-size: 2.8rem;
+ line-height: 1.1;
+ border-left: 6px solid #ff0066;
+ padding-left: 1.2rem;
+ }
+ h2 {
+ font-size: 2rem;
+ border-bottom: 2px solid #333;
+ padding-bottom: 0.5rem;
+ margin-top: 2.5rem;
+ }
+ h3 {
+ font-size: 1.4rem;
+ color: #00ffcc;
+ text-shadow: 0 0 6px rgba(0, 255, 204, 0.3);
+ }
+ h4 {
+ font-size: 1.1rem;
+ color: #ffcc00;
+ text-shadow: 0 0 4px rgba(255, 204, 0, 0.2);
+ }
+ p, li, blockquote, .body-text {
+ font-size: 1rem;
+ color: #c0c0c0;
+ margin-bottom: 1.2rem;
+ }
+ a {
+ color: #00ffcc;
+ text-decoration: none;
+ border-bottom: 1px solid transparent;
+ transition: border-color 0.2s;
+ }
+ a:hover {
+ border-bottom-color: #ff0066;
+ color: #ffcc00;
+ }
+ strong {
+ color: #ffcc00;
+ font-weight: 700;
+ }
+ /* LAYOUT GRID */
+ .container {
+ max-width: 1200px;
+ margin: 0 auto;
+ position: relative;
+ z-index: 1;
+ }
+ /* HEADER / NAV */
+ nav {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ padding: 1.5rem 0;
+ border-bottom: 1px solid #333;
+ margin-bottom: 3rem;
+ flex-wrap: wrap;
+ }
+ .nav-logo a {
+ font-size: 1.8rem;
+ font-weight: 800;
+ color: #ff0066;
+ text-shadow: 0 0 12px rgba(255, 0, 102, 0.5);
+ border-bottom: none;
+ letter-spacing: 0.1em;
+ }
+ .nav-links {
+ display: flex;
+ gap: 2rem;
+ list-style: none;
+ }
+ .nav-links a {
+ font-size: 0.9rem;
+ text-transform: uppercase;
+ letter-spacing: 0.1em;
+ padding: 0.3rem 0.6rem;
+ border: 1px solid transparent;
+ transition: all 0.2s;
+ }
+ .nav-links a:hover {
+ border-color: #ff0066;
+ background: rgba(255, 0, 102, 0.1);
+ }
+ .hamburger-menu {
+ display: none;
+ cursor: pointer;
+ background: none;
+ border: none;
+ padding: 0.5rem;
+ }
+ .hamburger-menu span {
+ display: block;
+ width: 28px;
+ height: 2px;
+ background: #e0e0e0;
+ margin: 6px 0;
+ transition: 0.3s;
+ }
+ /* TEL LINK */
+ .tel-link {
+ display: inline-block;
+ background: #ff0066;
+ color: #0a0a0a;
+ padding: 0.6rem 1.8rem;
+ font-weight: 800;
+ font-size: 1.1rem;
+ border: none;
+ cursor: pointer;
+ transition: all 0.2s;
+ text-transform: uppercase;
+ letter-spacing: 0.1em;
+ }
+ .tel-link:hover {
+ background: #cc0052;
+ box-shadow: 0 0 20px rgba(255, 0, 102, 0.6);
+ color: #fff;
+ }
+ /* CARD & BLOG STYLES */
+ .card {
+ background: #111;
+ border: 1px solid #2a2a2a;
+ padding: 2rem;
+ margin-bottom: 2rem;
+ transition: border-color 0.3s;
+ }
+ .card:hover {
+ border-color: #ff0066;
+ }
+ .card-title {
+ font-size: 1.6rem;
+ color: #ff0066;
+ margin-bottom: 0.8rem;
+ }
+ .card-meta {
+ font-size: 0.8rem;
+ color: #777;
+ text-transform: uppercase;
+ letter-spacing: 0.1em;
+ margin-bottom: 1.2rem;
+ border-bottom: 1px solid #222;
+ padding-bottom: 0.5rem;
+ }
+ .card-body {
+ color: #b0b0b0;
+ }
+ .card-body ul, .card-body ol {
+ padding-left: 1.5rem;
+ margin-bottom: 1.2rem;
+ }
+ .card-body li {
+ margin-bottom: 0.5rem;
+ }
+ blockquote {
+ border-left: 3px solid #ff0066;
+ padding: 1rem 1.5rem;
+ margin: 1.5rem 0;
+ background: rgba(255, 0, 102, 0.05);
+ font-style: italic;
+ color: #d0d0d0;
+ }
+ .data-stat {
+ display: inline-block;
+ background: #1a1a1a;
+ padding: 0.2rem 0.8rem;
+ font-weight: 800;
+ color: #00ffcc;
+ border: 1px solid #00ffcc;
+ margin-right: 0.3rem;
+ }
+ /* FAQ SECTION */
+ .faq-item {
+ margin-bottom: 1.5rem;
+ border-bottom: 1px solid #222;
+ padding-bottom: 1.5rem;
+ }
+ .faq-question {
+ font-weight: 700;
+ color: #ffcc00;
+ cursor: default;
+ margin-bottom: 0.6rem;
+ font-size: 1.1rem;
+ }
+ .faq-answer {
+ color: #b0b0b0;
+ }
+ /* FOOTER */
+ footer {
+ margin-top: 4rem;
+ padding: 2rem 0;
+ border-top: 1px solid #333;
+ text-align: center;
+ color: #666;
+ font-size: 0.85rem;
+ }
+ footer a {
+ color: #777;
+ border-bottom: none;
+ }
+ footer a:hover {
+ color: #ff0066;
+ }
+ /* RESPONSIVE */
+ @media (max-width: 768px) {
+ body {
+ padding: 1rem;
+ }
+ h1 {
+ font-size: 2rem;
+ }
+ .nav-links {
+ display: none;
+ flex-direction: column;
+ width: 100%;
+ background: #0d0d0d;
+ padding: 1rem 0;
+ border-top: 1px solid #333;
+ margin-top: 1rem;
+ }
+ .nav-links.active {
+ display: flex;
+ }
+ .hamburger-menu {
+ display: block;
+ }
+ .nav-logo a {
+ font-size: 1.4rem;
+ }
+ .card {
+ padding: 1.2rem;
+ }
+ }
+ </style>
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary">
 </head>
